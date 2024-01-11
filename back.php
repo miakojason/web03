@@ -78,7 +78,7 @@ if(!empty($_POST)){
               <td><input type="password" name="pw"></td>
             </tr>
           </table>
-          <div class="ct"><input type="submit" value="">登入</div>
+          <div class="ct"><input type="submit" value="登入"></div>
         </form>
       <?php
       }
