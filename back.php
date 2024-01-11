@@ -1,10 +1,10 @@
-<?php 
+<?php
 include_once "./api/db.php";
-if(!empty($_POST)){
-  if($_POST['acc']=='admin' && $_POST['pw']=='1234'){
-    $_SESSION['login']=1;
-  }else{
-    $error="<div class='ct' style='color:red'>帳號或密碼錯誤</div>";
+if (!empty($_POST)) {
+  if ($_POST['acc'] == 'admin' && $_POST['pw'] == '1234') {
+    $_SESSION['login'] = 1;
+  } else {
+    $error = "<div class='ct' style='color:red'>帳號或密碼錯誤</div>";
   }
 };
 ?>
@@ -64,11 +64,11 @@ if(!empty($_POST)){
         <form action="?" method="post" style="width:35%;margin:20px auto;">
           <h3 class="ct">管理者登入</h3>
           <?php
-          if(isset($error)){
+          if (isset($error)) {
             echo $error;
           }
           ?>
-          <table class="">
+          <table>
             <tr>
               <td>帳號:</td>
               <td><input type="text" name="acc"></td>
@@ -87,4 +87,5 @@ if(!empty($_POST)){
     <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
   </div>
 </body>
+
 </html>
