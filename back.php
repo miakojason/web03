@@ -35,9 +35,15 @@
         <a href="?do=order">電影訂票管理</a>
       </div>
       <div class="rb tab">
-       <?php
-       
-       ?>
+        <?php
+        $do = $_GET['do'] ?? 'main';
+        $file = "./back/{$do}.php";
+        if (file_exists($file)) {
+          include "$file";
+        } else {
+          include "./back/main.php";
+        }
+        ?>
       </div>
     </div>
     <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
