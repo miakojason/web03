@@ -123,7 +123,7 @@
   }
 
   let total = $(".btn").length;
-  console.log("length".total);
+  console.log("length",total);
   let p = 0;
 
   $(".left,.right").on("click", function() {
