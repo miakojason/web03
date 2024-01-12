@@ -8,7 +8,7 @@
 <?php
 $movie = $Movie->find($_GET['id']);
 ?>
-<form action="./api/edit_movie.php" method="post" enctype="multipart/form-data">
+<form action="./api/save_movie.php" method="post" enctype="multipart/form-data">
     <div style="display:flex;align-items:start">
         <div style="width:15%;">影片資料</div>
         <div style="width:85%;">
@@ -70,23 +70,23 @@ $movie = $Movie->find($_GET['id']);
                 </tr>
                 <tr>
                     <td class="ct">預告影片</td>
-                    <td><input type="file" name="trailer" value="<?= $movie['trailer']; ?>"></td>
+                    <td><input type="file" name="trailer" id=""></td>
                 </tr>
                 <tr>
                     <td class="ct">電影海報</td>
-                    <td><input type="file" name="poster" value="<?= $movie['poster']; ?>"></td>
+                    <td><input type="file" name="poster" id=""></td>
                 </tr>
             </table>
         </div>
     </div>
-    <div style="display: flex;align-items:start">
+    <div style="display:flex;align-items:start">
         <div style="width:15%;">劇情簡介</div>
         <div style="width:85%;">
             <textarea name="intro" style="width:99%;height:100px;"><?= $movie['intro']; ?></textarea>
         </div>
     </div>
     <div class="ct">
-        <input type="hidden" neme="<?=$movie[''];?>">
+        <input type="hidden" name="id" value="<?= $movie['id']; ?>">
         <input type="submit" value="編輯">
         <input type="reset" value="重置">
     </div>
