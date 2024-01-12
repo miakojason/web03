@@ -15,7 +15,7 @@
     }
 </style>
 <div>
-    <h3 class='ct'>預告片清單</h3>
+    <div class='ct'>預告片清單</div>
     <div style="display:flex;justify-content:space-between">
         <div class="ct" style="width:24.5%;margin:0 0.25%">預告片海報</div>
         <div class="ct" style="width:24.5%;margin:0 0.25%">預告片片名</div>
@@ -64,35 +64,35 @@
 </div>
 <hr>
 <div>
-    <h3 class='ct'>新增預告片海報</h3>
-    <form action="./api/add_poster.php" method="post" enctype="multipart/form-data">
-        <table class="ts">
-            <tr>
-                <td class="ct">預告片海報</td>
-                <td class="ct"><input type="file" name="poster" id=""></td>
-                <td class="ct">預告片片名</td>
-                <td class="ct"><input type="text" name="name" id=""></td>
-            </tr>
-        </table>
-        <div class="ct">
-            <input type="submit" value="新增">
-            <input type="reset" value="重置">
-        </div>
-    </form>
-</div>
+    <div class='ct'>新增預告片海報</h3>
+        <form action="./api/add_poster.php" method="post" enctype="multipart/form-data">
+            <table class="ts">
+                <tr>
+                    <td class="ct">預告片海報</td>
+                    <td class="ct"><input type="file" name="poster" id=""></td>
+                    <td class="ct">預告片片名</td>
+                    <td class="ct"><input type="text" name="name" id=""></td>
+                </tr>
+            </table>
+            <div class="ct">
+                <input type="submit" value="新增">
+                <input type="reset" value="重置">
+            </div>
+        </form>
+    </div>
 
 
-<script>
-    $(".btn").on("click", function() {
-        let id = $(this).data('id');
-        let sw = $(this).data('sw');
-        let table = 'poster'
-        $.post("./api/sw.php", {
-            id,
-            sw,
-            table
-        }, () => {
-            location.reload()
+    <script>
+        $(".btn").on("click", function() {
+            let id = $(this).data('id');
+            let sw = $(this).data('sw');
+            let table = 'poster'
+            $.post("./api/sw.php", {
+                id,
+                sw,
+                table
+            }, () => {
+                location.reload()
+            })
         })
-    })
-</script>
+    </script>
