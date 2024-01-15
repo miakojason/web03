@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-15 08:24:43
+-- 產生時間： 2024-01-15 08:24:26
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -24,42 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `poster`
+-- 資料表結構 `oders`
 --
 
-CREATE TABLE `poster` (
+CREATE TABLE `oders` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` text NOT NULL,
-  `img` text NOT NULL,
-  `sh` int(1) NOT NULL,
-  `rank` int(10) NOT NULL,
-  `ani` int(1) NOT NULL
+  `no` text NOT NULL,
+  `movie` text NOT NULL,
+  `date` date NOT NULL,
+  `session` text NOT NULL,
+  `qt` int(10) UNSIGNED NOT NULL,
+  `seats` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 傾印資料表的資料 `poster`
---
-
-INSERT INTO `poster` (`id`, `name`, `img`, `sh`, `rank`, `ani`) VALUES
-(1, '011', '03A01.jpg', 1, 1, 2),
-(2, '02', '03A02.jpg', 1, 5, 3),
-(3, '03', '03A03.jpg', 1, 3, 2),
-(4, '04', '03A04.jpg', 1, 4, 3),
-(5, '05', '03A05.jpg', 1, 2, 1),
-(6, '9', '03A09.jpg', 1, 6, 2),
-(7, '9', '03A08.jpg', 1, 7, 1),
-(8, '8', '03A06.jpg', 1, 8, 1),
-(9, '7', '03A03.jpg', 1, 9, 3),
-(10, '6', '03A06.jpg', 1, 10, 1);
 
 --
 -- 已傾印資料表的索引
 --
 
 --
--- 資料表索引 `poster`
+-- 資料表索引 `oders`
 --
-ALTER TABLE `poster`
+ALTER TABLE `oders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -67,10 +52,10 @@ ALTER TABLE `poster`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `poster`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `oders`
 --
-ALTER TABLE `poster`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `oders`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

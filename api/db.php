@@ -39,11 +39,11 @@ class DB
     {
         return $this->math('sum', $col, $where, $other);
     }
-    function max($col = '', $where = '', $other = '')
+    function max($col, $where = '', $other = '')
     {
         return $this->math('max', $col, $where, $other);
     }
-    function min($col = '', $where = '', $other = '')
+    function min($col, $where = '', $other = '')
     {
         return $this->math('min', $col, $where, $other);
     }
@@ -172,7 +172,14 @@ function to($url)
 {
     header("location:$url");
 }
+$sess = [
+    1 => '14:00~16:00',
+    2 => '16:00~18:00',
+    3 => '18:00~20:00',
+    4 => '20:00~22:00',
+    5 => '22:00~24:00',
+];
 // ------------------------------------------------
 $Poster = new DB('poster');
 $Movie = new DB('movie');
-
+$Order = new DB('orders');
