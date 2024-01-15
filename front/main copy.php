@@ -35,9 +35,6 @@
     border: 20px solid black;
     border-top-color: transparent;
     border-bottom-color: transparent;
-    /* border-top-color: blue; */
-    /* border-right-color: green; */
-    /* border-bottom-color: yellow; */
   }
 
   .left {
@@ -94,6 +91,7 @@
       }
       ?>
     </div>
+
     <div class="controls">
       <div class="left"></div>
       <div class="btns">
@@ -114,7 +112,7 @@
 </div>
 <script>
   $(".item").eq(0).show();
-  let total = $(".btn").length;
+  let total = $(".btn").length
   let now = 0;
   let timer = setInterval(() => {
     slide()
@@ -143,14 +141,17 @@
         });
         break;
     }
+
     now = next;
+
   }
 
-  console.log("length", total);
+
+
   let p = 0;
 
   $(".left,.right").on("click", function() {
-    let arrow = $(this).attr('class');
+    let arrow = $(this).attr('class')
     switch (arrow) {
       case "right":
         if (p + 1 <= (total - 4)) {
@@ -167,6 +168,7 @@
       right: 90 * p
     })
   })
+
   $(".btns").hover(
     function() {
       clearInterval(timer)
@@ -178,6 +180,7 @@
     }
   )
 </script>
+
 <style>
   .movies {
     display: flex;
@@ -212,7 +215,7 @@
       ?>
         <div class="movie">
           <div style="width:35%">
-            <a href="?do=intro&id=<?= $movie['id']; ?>">
+            <a href='?do=intro&id=<?= $movie['id']; ?>'>
               <img src="./img/<?= $movie['poster']; ?>" style="width:60px;border:3px solid white">
             </a>
           </div>
@@ -236,14 +239,17 @@
         $prev = $now - 1;
         echo "<a href='?p=$prev'> < </a>";
       }
+
       for ($i = 1; $i <= $pages; $i++) {
         echo "<a href='?p=$i'> $i </a>";
       }
+
       if ($now + 1 <= $pages) {
         $next = $now + 1;
         echo "<a href='?p=$next'> > </a>";
       }
       ?>
+
     </div>
   </div>
 </div>
