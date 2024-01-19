@@ -2,6 +2,17 @@
 $movie = $Movie->find($_GET['movie_id']);
 $date = $_GET['date'];
 $session = $_GET['session'];
+
+$ords = $Order->all([
+    'movie' => $movie['name'],
+    'date' => $date,
+    'session' => $session
+]);
+$seats = [];
+foreach ($ords as $ord) {
+    $tmp = unserialize($ord['seats']);
+    $seats = array_merge($seats, $tmp);
+}
 ?>
 <style>
     #room {
@@ -42,9 +53,15 @@ $session = $_GET['session'];
             echo (($i % 5) + 1) . "號";
             echo "</div>";
             echo "<div class='ct'>";
-            echo "<img src='./icon/03D02.png'>";
+            if(in_array($i,$seats)){
+                echo "<img src='./icon/03D03.png'>";
+            }else{
+                echo "<img src='./icon/03D02.png'>";
+            }
             echo "</div>";
-            echo "<input type='checkbox' name='chk' value='$i'class='chk'>'";
+            if(!in_array($i,$seats)){
+                echo "<input type='checkbox' name='chk' value='$i'class='chk'>'";
+            }
             echo "</div>";
         }
         ?>
@@ -84,7 +101,7 @@ $session = $_GET['session'];
             movie: '<?= $movie['name']; ?>',
             date: '<?= $date; ?>',
             session: '<?= $session; ?>',
-            qt:seats.length,
+            qt: seats.length,
             seats
         }, (no) => {
             location.href = `?do=result&no=${no}`;
