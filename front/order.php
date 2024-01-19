@@ -14,27 +14,14 @@
             <select name="session" id="session"></select>
         </div>
         <div>
-            <button onclick="$('#select').hide();$('#booking').show()">確定</button>
+            <button onclick="booking()">確定</button>
             <button>重置</button>
         </div>
     </div>
 </div>
-<style>
-    #room {
-        background-image: url("./icon/03D04.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 540px;
-        height: 370px;
-        margin: auto;
-    }
-</style>
+
 <div id="booking" style="display:none;">
-    <div id="room"></div>
-    <div id="info">
-        <button onclick="$('#select').show();$('#booking').hide()">上一布</button>
-        <button>訂購</button>
-    </div>
+
 </div>
 <script>
     let url = new URL(window.location.href);
@@ -52,8 +39,9 @@
             if (url.searchParams.has('id')) {
                 $(`#movie option[value='${url.searchParams.get('id')}']`).prop('selected', true);
             }
-            let id = $("#movie").val();
-            getDates(id);
+            // let id = $("#movie").val();
+            // getDates(id);
+            getDates($("#movie").val());
         })
     }
 
@@ -75,5 +63,19 @@
         }, (sessions) => {
             $("#session").html(sessions);
         })
+    }
+
+    function booking() {
+        let order = {
+            movie_id: $('#movie').val(),
+            date: $('#date').val(),
+            session: $('#session').val(),
+        }
+        $.get("./api/booking.php", order, (booking) => {
+            $('#booking').html(booking);
+            $('#select').hide();
+            $('#booking').show();
+        })
+
     }
 </script>
