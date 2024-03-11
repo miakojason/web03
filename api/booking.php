@@ -77,26 +77,38 @@ foreach ($ords as $ord) {
     </div>
 </div>
 <script>
+    //建立一個js陣列用來儲存使用者選中的座位    
     let seats = new Array();
+    //監聽checkbox的改變事件
     $(".chk").on("change", function() {
+         //根據屬性checked的狀態來決定下一步是選擇位置還是取消位置
         if ($(this).prop('checked')) {
+            //如果是選中的狀態，
+        //先判斷目前選中的座位有沒有超過四個
             if (seats.length + 1 <= 4) {
+                //如果選中的座位數還沒有超過四個，
+            //就把座位號碼放入陣列中
                 seats.push($(this).val())
             } else {
                 $(this).prop('checked', false)
+                 //接著將選中的座位還原為不選中的狀態
                 alert("每個人只能勾選四張票")
             }
         } else {
+            //如果是要取消選中的座位，
+        //則同時也在座位陣列中移除該座位號碼
             // console.log(seats.indexOf($(this).val()));
             seats.splice(seats.indexOf($(this).val()), 1)
         }
 
         // console.log($(this).prop('checked'), seats)
         // console.log(seat.length)
+        //更新票數的文字內容
         $("#tickert").text(seats.length)
     })
-
+//確認訂單的函式
     function checkout() {
+         //使用ajax向api傳送訂單的資料
         $.post("./api/checkout.php", {
             movie: '<?= $movie['name']; ?>',
             date: '<?= $date; ?>',
@@ -104,6 +116,7 @@ foreach ($ords as $ord) {
             qt: seats.length,
             seats
         }, (no) => {
+            //如果訂單成功，就將網址導向到訂單資料頁面，並帶上訂單編號
             location.href = `?do=result&no=${no}`;
         })
     }
