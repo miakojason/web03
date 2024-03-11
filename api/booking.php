@@ -104,7 +104,7 @@ foreach ($ords as $ord) {
         // console.log($(this).prop('checked'), seats)
         // console.log(seat.length)
         //更新票數的文字內容
-        $("#tickert").text(seats.length)
+        $("#ticket").text(seats.length)
     })
 //確認訂單的函式
     function checkout() {
