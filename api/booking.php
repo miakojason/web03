@@ -3,7 +3,7 @@ $movie = $Movie->find($_GET['movie_id']);
 $date = $_GET['date'];
 $session = $_GET['session'];
 
-$ords = $Order->all([
+$ords = $Orders->all([
     'movie' => $movie['name'],
     'date' => $date,
     'session' => $session
