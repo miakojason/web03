@@ -1,5 +1,5 @@
 <?php
-$order = $Order->find(['no' => $_GET['no']]);
+$order = $Orders->find(['no' => $_GET['no']]);
 ?>
 <table>
     <tr>

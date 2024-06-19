@@ -104,19 +104,17 @@ foreach ($ords as $ord) {
         // console.log($(this).prop('checked'), seats)
         // console.log(seat.length)
         //更新票數的文字內容
-        $("#ticket").text(seats.length)
+        $("#tickets").text(seats.length)
     })
 //確認訂單的函式
     function checkout() {
-         //使用ajax向api傳送訂單的資料
-        $.post("./api/checkout.php", {
-            movie: '<?= $movie['name']; ?>',
+       
+        $.post("./api/checkout.php", {movie: '<?= $movie['name']; ?>',
             date: '<?= $date; ?>',
             session: '<?= $session; ?>',
             qt: seats.length,
-            seats
-        }, (no) => {
-            //如果訂單成功，就將網址導向到訂單資料頁面，並帶上訂單編號
+            seats}, (no) => {
+            
             location.href = `?do=result&no=${no}`;
         })
     }
